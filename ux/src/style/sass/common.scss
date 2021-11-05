@@ -1,0 +1,91 @@
+$colors: (
+  default: #535353,
+  default-dark: #3a3a3a,
+  default-light: #7c7c7c,
+  active: #9b00ca,
+  active-dark: #420057,
+  active-light: #bc5fd8
+);
+
+$sublte-text-shadow: 1px 1px 5px black;
+
+.common-button {
+  padding: 15px 30px;
+  border: 0;
+  border-radius: 25px;
+  color: #ffffff;
+  background-color: map-get($colors, default);
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  font-size: 16px;
+  cursor: pointer;
+  transition: 0.25s ease-in, transform 50ms;
+
+
+  &:hover {
+    color: #ffffff;
+    background-color: map-get($colors, active);
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 5px 10px rgba(0,0,0,0.22);
+  }
+
+  &:active {
+    transform: translateY(2px);
+  }
+}
+
+.common-button-small {
+  @extend .common-button;
+  padding: 5px 15px;
+  font-size: 12px;
+}
+
+// For use with just an icon
+.icon-button {
+  @extend .common-button;
+  height: 35px;
+  width: 35px;
+  padding: 0;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icon-button-small {
+  @extend .common-button;
+  padding: 0;
+  background: none;
+  box-shadow: none;
+
+  &:hover {
+    color: map-get($colors, active);
+    background-color: transparent;
+    box-shadow: none;
+  }
+}
+
+.panel {
+  padding: 15px;
+  background-color: map-get($colors, default-dark);
+  border-radius: 10px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  overflow-y: auto;
+  opacity: 0.9;
+}
+
+// custom scroll-bar
+@mixin custom-scroll-bar() {
+  &::-webkit-scrollbar {
+    border-radius: 10px;
+    height: 10px;
+    width: 8px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #999;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    border-radius: 10px;
+  }
+}
